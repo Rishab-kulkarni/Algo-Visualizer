@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link href="styles/sieve.css" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+  <title>Sieve</title>
+
+  <script>
+    const me = () => {
+      alert(' When I first learnt about sieve, I was really amazed by the trick. If you want to read more about how sieve works and other variations of it, go to cp-algorithms.com ');
+
+    }
+  </script>
+
+
+</head>
+
+<body style="background-color: lightblue">
+
+  <header>
+
+    <div class="slidecontainer">
+      Array size
+      <input type="range" min="5" max="25" value="10" class="slider" id="myRange" />
+    </div>
+
+    <div class="slidecontainer">
+      Speed
+      <input type="range" min="10" max="30" value="10" class="slider" id="speed" />
+    </div>
+
+    <div align="center">
+      <h2 id="heading" onclick="me()">Sieve of Eratosthenes</h2>
+    </div>
+
+
+    <nav>
+      <div class="row">
+
+
+        <div class="col gap-2 d-sm-flex justify-content-center">
+          <button type="button" class="btn btn-primary" id="sieve">
+            Generate Prime Numbers
+          </button>
+
+
+
+        </div>
+      </div>
+
+
+    </nav>
+  </header>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Sieve of Erastothenes
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>In mathematics, the sieve of eratosthenes is an algorithm for finding all prime numbers up to any given
+                limit.</p>
+            <li>
+              <p>It does so by iteratively marking as composite (i.e., not prime) the multiples of each prime, starting
+                with the first prime number, 2. The multiples of a given prime are generated as a sequence of numbers
+                starting from that prime, with constant difference between them that is equal to that prime. This is the
+                sieve's key distinction from using trial division to sequentially test each candidate number for
+                divisibility by each prime. Once all the multiples of each discovered prime have been marked as
+                composites, the remaining unmarked numbers are primes.</p>
+            </li>
+            <li>
+              <p>Using such algorithm to find primes consumes <img src="https://latex.codecogs.com/svg.image?O(n)"
+                  title="O(n)" /> memory and <img src="https://latex.codecogs.com/svg.image?O(nloglogn)"
+                  title="O(nloglogn)" /> operations </p>
+            </li>
+
+
+
+          </ul>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2"> Sieve in action</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>This is an animation to demonstrate how sieve works</p>
+            </li>
+            <li>
+              <p>Use the slider to set array size and the speed of animation</p>
+            <li>
+              <p>All prime numbers found are marked with <span style="color: green">green</span> color</p>
+            </li>
+            
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="prime_numbers_container"></div>
+  <table class="mytable"></table>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#exampleModal').modal('show');
+    });
+  </script>
+
+
+
+
+  <script src='algorithms/sieve.js'></script>
+</body>
+
+</html>

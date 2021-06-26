@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  background-color: lightblue;
+}
+
+th {
+  width: 500px;
+}
+
+#sieve{
+  margin: 20px;
+}
+
+.prime_numbers_container {
+  color: blue;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 5px;
+  font-weight: bolder;
+}
+
+.node {
+  height: 70px;
+  background-color: white;
+  text-align: center;
+  font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid;
+  border-color: black;
+}
+
+.slidecontainer{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 17px;
+  font-weight: bold;
+}

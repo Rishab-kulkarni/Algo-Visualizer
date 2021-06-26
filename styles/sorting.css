@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 0 20px 30px 0;
+  line-height: 1.4;
+  background-color: lightblue;
+}
+
+.flex-container{
+  margin-top: 20px;
+  padding-top: 20px;
+  display: flex;        /**to invert the bars comment this line**/
+  /* height: 500px; */
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  transition: 2s all ease;
+}
+
+.flex-item{
+  background: red;
+  border: 1pt solid black;
+  width: 6px;
+  display: inline-block;
+  margin : 0 1px;
+  transition: 0.1s all ease;
+}
+
+

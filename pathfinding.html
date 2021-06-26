@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+  <link href="styles/pathfinding.css" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <title>Pathfinding</title>
+</head>
+
+<body>
+
+  <header>
+
+    <h2 align='center'> Pathfinding Visualizer </h2>
+
+    <nav>
+      <div class="row">
+        <div class="col gap-2 d-sm-flex justify-content-center">
+          <button type="button" class="btn btn-primary" id="clear">
+            Clear Grid
+          </button>
+          <button type="button" class="btn btn-primary" id="dijkstra">
+            Dijkstra's
+          </button>
+          <button type="button" class="btn btn-primary" id="dfs">
+            Depth First Search
+          </button>
+          <button type="button" class="btn btn-primary" id="bfs">
+            Breadth First Search
+          </button>
+          <button type="button" class="btn btn-primary" id="astar">
+            A* Search
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">
+            Welcome to Pathfinding Visualizer
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p> This short tutorial will walk you through the features of this application</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">What is a pathfinding algorithm ? </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>At its core, a pathfinding algorithm seeks to find the shortest path between two points. This
+                application visualizes various pathfinding algorithms in action.</p>
+            </li>
+            <li>
+              <p>All of the algorithms on this application are modeled on a 2D grid where movement from one node to
+                another has a "cost" of one unit.</p>
+            </li>
+            <li>
+              <h5>Meet the pathfinding algorithms</h5>
+              <ul>
+                <li>
+                  <p> <em>Dijkstra's algorithm </em> : The father of all pathfinding algorithms - weighted and
+                    guarantees the shortest path</p>
+                </li>
+                <li>
+                  <p> <em>Depth First search </em> : A very bad algorithm for pathfinding , unweighted and does not guarantee the shortest path.</p>
+                </li>
+                <li>
+                  <p> <em>Breadth First search </em> : Pretty good at finding the shortest path in unweighted type </p>
+                </li>
+                <li>
+                  <p> <em>A* search </em> : Uses heuristics to determine the shortest path, one of the best algorithms
+                    out there.</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel3">Mark start, finish nodes and add walls </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>Start node is marked with <span style="color: blue;"> blue </span> color. </p>
+            </li>
+            <li>
+              <p>End node is marked with <span style="color: red;"> red </span> color. </p>
+            </li>
+            <li>
+              <p> Click on the grid to add walls. (black color) </p>
+            </li>
+            <li>
+              <p> Walls are impenetrable, meaning that a path cannot cross through them. </p>
+            </li>
+
+            <li>
+              <p>The shortest path (if it exists) is marked by <span style="color: yellow;"> yellow </span> color. </p>
+            </li>
+
+
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel4">Enjoy !</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p> I hope you have just as much fun playing around with this visualization tool as I had building it! </p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <table class="mytable" style="margin-left: 10px; margin-right: 10px">
+  </table>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#exampleModal').modal('show');
+    });
+  </script>
+
+
+
+
+  <script src='algorithms/pathfinding.js'></script>
+  <!-- <script src="./astar.js"></script> -->
+  <script src='algorithms/depthfirstsearch.js'></script>
+  <script src='algorithms/dijkstra.js'></script>
+  <script src='algorithms/breadthfirstsearch.js'></script>
+</body>
+
+</html>

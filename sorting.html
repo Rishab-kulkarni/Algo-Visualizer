@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <title>Sorting </title>
+  <link href="styles/sorting.css" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+
+</head>
+
+<header>
+  <nav>
+    <h2 align="center">Sorting Visualizer</h2>
+
+    <div class="slidecontainer">
+      Array Size
+      <input type="range" min="10" max="120" value="50" class="slider" id="myRange" />
+    </div>
+
+    <div class="row">
+      <div class="col gap-2 d-sm-flex justify-content-center">
+        <button type="button" class="btn btn-primary" id="newArray">
+          New Array
+        </button>
+        <button type="button" class="btn btn-primary" id="mergeSort">
+          Merge Sort
+        </button>
+        <button type="button" class="btn btn-primary" id="quickSort">
+          Quick Sort
+        </button>
+        <button type="button" class="btn btn-primary" id="bubbleSort">
+          Bubble Sort
+        </button>
+        <button type="button" class="btn btn-primary" id="insertionSort">
+          Insertion Sort
+        </button>
+        <button type="button" class="btn btn-primary" id="bogoSort">
+          Bogo Sort
+        </button>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body >
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="
+                    modal-dialog modal-dialog-centered modal-dialog-scrollable
+                ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Welcome to the Sorting Visualizer !
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>
+                This is an application to visualize various sorting algorithms.
+              </p>
+            </li>
+            <li>
+              <p>
+                From <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank">wikipedia </a>: In
+                computer science, a
+                sorting algorithm is an algorithm that puts elements of a list in a certain order. The most frequently
+                used orders are numerical order and lexicographical order. Efficient sorting is important for optimizing
+                the efficiency of other algorithms (such as search and merge algorithms) that require input data to be
+                in sorted lists.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Read up more about various sorting algorithms <a href="https://en.wikipedia.org/wiki/Sorting_algorithm"
+                  target="_blank"> from here.</a> ( <s>Bogo Sort is the best xD</s> )
+              </p>
+            </li>
+
+
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+            data-bs-dismiss="modal">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">How to use !</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>
+              <p>Generate a random unsorted array using the slider on the top left.</p>
+            </li>
+            <li>
+              <p> Select one of the sorting algorithms and visualize it.</p>
+            <li>
+              <p> Now grab a popcorn and sitback as your array gets sorted. </p>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"
+            data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="bars" class="flex-container" align="center" style="height: 500px"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function () {
+      $("#exampleModal").modal("show");
+    });
+  </script>
+
+  <script src="algorithms/sorting.js"></script>
+  <script src="algorithms/mergesort.js"></script>
+  <script src="algorithms/quicksort.js"></script>
+  <script src="algorithms/bubblesort.js"></script>
+  <script src="algorithms/insertionsort.js"></script>
+</body>
+
+</html>
