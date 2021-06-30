@@ -86,5 +86,4 @@ dijkstraBtn.addEventListener('click', async () => {
   
   isRunning = false;
   toggledButtonDisable(isRunning);
-  
 })

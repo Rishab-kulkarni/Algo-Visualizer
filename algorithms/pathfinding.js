@@ -1,9 +1,20 @@
 
 
+/** Animation delay **/
+let delay = 10;
+const waitforme = (delay) => {
+  return new Promise(resolve => {
+    setTimeout(() => { resolve('') }, delay);
+  })
+}
+
+
 let cols = Math.round(screen.width / 30);
 let rows = Math.round(screen.height / 45);
 
-const createTable = (rows, cols) => {
+const renderTable = (rows, cols) => {
+
+  /** render on screen **/
 
   const table = document.getElementsByClassName('mytable')
   for (let i = 0; i < rows; ++i) {
@@ -24,28 +35,53 @@ const createTable = (rows, cols) => {
 }
 
 
-createTable(rows, cols);
+renderTable(rows, cols);
+
+// set start ,finish node coordinates 
+let [startRow, startCol, finishRow, finishCol] = [rows - 1, cols-1, 0, 0];
+
+document.getElementById(`${startRow}-${startCol}`).className = 'node start';
+document.getElementById(`${finishRow}-${finishCol}`).className = 'node finish';
 
 
 
-let startRow = rows - 1;
-let startCol = cols - 1 ;
+/**  
+ *  All algorithms run on grid 2d array of objects.
+ *  Nodes marked as walls on screen, are blocked on the grid. (impenetrable)
+ *  Each node on grid has a bunch of different properties - check createNode()
+ *  After running then animation is rendered on the screen
+**/
 
-let finishRow = 0;
-let finishCol = 0;
+const createNode = (col, row) => {
+  return {
+    col,
+    row,
+    isStart: row === startRow && col === startCol,
+    isFinish: row === finishRow && col === finishCol,
+    distance: Infinity,
+    distanceToFinishNode: Math.abs(finishRow - row) + Math.abs(finishCol - col),
+    isVisited: false,
+    isWall: false,
+    previousNode: null,
+  }
+}
 
-
-const start_node = document.getElementById(`${startRow}-${startCol}`)
-const finish_node = document.getElementById(`${finishRow}-${finishCol}`)
-
-start_node.className = 'node start';
-finish_node.className = 'node finish';
-
-
-
+const createGrid = () => {
+  const grid = [];
+  for (let row = 0; row < rows; row++) {
+    const currentRow = [];
+    for (let col = 0; col < cols; col++) {
+      currentRow.push(createNode(col, row));
+    }
+    grid.push(currentRow);
+  }
+  return grid;
+}
 
 const getNewGridWithWalls = (grid, row, col) => {
   
+  /* isWall property of node is set to true */
+
   if(!isRunning) {
     const newGrid = grid.slice();
     const node = newGrid[row][col];
@@ -62,59 +98,14 @@ const getNewGridWithWalls = (grid, row, col) => {
 
 
 
-let TOTAL_ROWS = rows;
-let TOTAL_COLUMNS = cols;
-
-
-const createNode = (col, row) => {
-  return {
-    col,
-    row,
-    isStart: row === startRow && col === startCol,
-    isFinish: row === finishRow && col === finishCol,
-    distance: Infinity,
-    distanceToFinishNode: Math.abs(finishRow - row) + Math.abs(finishCol - col),
-    isVisited: false,
-    isWall: false,
-    previousNode: null,
-  }
-}
-
-
-const createGrid = () => {
-  const grid = [];
-  for (let row = 0; row < TOTAL_ROWS; row++) {
-    const currentRow = [];
-    for (let col = 0; col < TOTAL_COLUMNS; col++) {
-      currentRow.push(createNode(col, row));
-    }
-    grid.push(currentRow);
-  }
-  return grid;
-}
-
-
-// TODO - input delay from slider
-let delay = 10;
-const waitforme = (delay) => {
-  return new Promise(resolve => {
-    setTimeout(() => { resolve('') }, delay);
-  })
-}
-
-
 let grid = createGrid();
 
-
 let isRunning = false;
-
-
 const clicked = (node) => {
 
- 
+  /** Mark walls, change pos of start and finish node **/
 
   let nodeClass = node.className;
-
   const [row, col] = node.id.split('-');
 
 
@@ -138,7 +129,6 @@ const clicked = (node) => {
       alert(`Can't move this :( `);
       alert('Will add it in the future tho :) ')
     }
-
   }
 }
 
@@ -148,10 +138,8 @@ const clearGrid = () => {
     const newGrid = grid.slice();
     for (const row of newGrid) {
       for (const node of row) {
-        let nodeClassName = document.getElementById(
-          `${node.row}-${node.col}`,
-        ).className;
-        if (
+        let nodeClassName = document.getElementById(`${node.row}-${node.col}`).className;
+        if(
           nodeClassName !== 'node start' &&
           nodeClassName !== 'node finish' &&
           nodeClassName !== 'node wall'
@@ -180,7 +168,7 @@ const clearGrid = () => {
 }
 
 
-
+/** check whether node coordinates within table bounds */
 const isValid = (currentNodeRow, currentNodeCol) => {
 
   if (currentNodeRow >= 0 && currentNodeRow <= rows - 1 && currentNodeCol >= 0 && currentNodeCol <= cols - 1) {
@@ -191,12 +179,11 @@ const isValid = (currentNodeRow, currentNodeCol) => {
       return true;
     }
   }
-
   return false;
 }
 
 
-
+/** Recover path (if exists) by backtracking */
 const getPath = (finishNode) => {
 
   const path = [];
@@ -205,16 +192,11 @@ const getPath = (finishNode) => {
     path.unshift(currentNode);
     currentNode = currentNode.previousNode;
   }
-  // console.log(path);
   return path;
 }
 
 
-
-
 const animatePath = async (path) => {
-  // console.log('animate the path');
-
   for (let i = 0; i < path.length; ++i) {
     const { row, col } = path[i];
     await waitforme(delay);
@@ -228,12 +210,8 @@ const animatePath = async (path) => {
 }
 
 
-
-
-const animateAlgorithm = async (visualizeNodesInOrder, algorithm) => {
-
-  // console.log(`Running ${algorithm}`);
-
+/** Animate the algorithm **/
+const animateAlgorithm = async (visualizeNodesInOrder) => {
   for (let i = 0; i < visualizeNodesInOrder.length; ++i) {
     await waitforme(delay);
     const { col, row } = visualizeNodesInOrder[i];
@@ -269,12 +247,11 @@ const toggledButtonDisable = (isRunning) => {
   }
 }
 
-
-
 const clearGridBtn = document.getElementById('clear');
 clearGridBtn.addEventListener('click', () => {
   clearGrid();
 })
+
 
 
 document.getElementById('astar').addEventListener('click', () => {
