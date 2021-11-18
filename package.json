@@ -1,0 +1,19 @@
+{
+  "name": "algo-visualizer",
+  "version": "1.0.0",
+  "description": "Algorithm visualization tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishab-kulkarni/Algo-Visualizer.git"
+  },
+  "author": "rishab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rishab-kulkarni/Algo-Visualizer/issues"
+  },
+  "homepage": "https://github.com/Rishab-kulkarni/Algo-Visualizer#readme"
+}
