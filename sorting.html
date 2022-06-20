@@ -22,8 +22,15 @@
 
     <div class="slidecontainer">
       Array Size
-      <input type="range" min="10" max="120" value="50" class="slider" id="myRange" />
+      <input type="range" min="10" max="30" value="50" class="slider" id="myRange" />
     </div>
+    <br/>
+    <!-- <div class="pausebtn">
+      <button type="button" class="btn btn-primary" id="pause">
+        Pause
+      </button> -->
+    </div>
+
 
     <div class="row">
       <div class="col gap-2 d-sm-flex justify-content-center">
@@ -42,8 +49,8 @@
         <button type="button" class="btn btn-primary" id="insertionSort">
           Insertion Sort
         </button>
-        <button type="button" class="btn btn-primary" id="bogoSort">
-          Bogo Sort
+        <button type="button" class="btn btn-primary" id="selectionSort">
+          Selection Sort
         </button>
 
 
@@ -54,7 +61,7 @@
 
 <body >
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="
                     modal-dialog modal-dialog-centered modal-dialog-scrollable
                 ">
@@ -129,7 +136,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <div id="bars" class="flex-container" align="center" style="height: 500px"></div>
@@ -153,6 +160,7 @@
   <script src="algorithms/quicksort.js"></script>
   <script src="algorithms/bubblesort.js"></script>
   <script src="algorithms/insertionsort.js"></script>
+  <script src="algorithms/selectionsort.js"></script>
 </body>
 
 </html>

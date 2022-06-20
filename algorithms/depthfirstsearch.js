@@ -4,7 +4,7 @@ const depthFirstSearch = (grid, startNode, finishNode) => {
 
   const visitedNodesInOrder = [];
   const dfsStack = [];
-  
+
   dfsStack.push(startNode);
   while (dfsStack.length) {
     const currentNode = dfsStack.pop();
@@ -19,12 +19,12 @@ const depthFirstSearch = (grid, startNode, finishNode) => {
       const { col, row } = currentNode;
       let nextNode;
 
-      for(let i = 0 ; i < 4 ; ++i) {
-        if(isValid(row + dx[i] , col + dy[i])) {
+      for (let i = 0; i < 4; ++i) {
+        if (isValid(row + dx[i], col + dy[i])) {
           nextNode = grid[row + dx[i]][col + dy[i]];
-          if(!nextNode.isVisited) {
+          if (!nextNode.isVisited) {
             nextNode.previousNode = currentNode;
-            dfsStack.push(nextNode);          
+            dfsStack.push(nextNode);
           }
         }
       }
@@ -39,19 +39,16 @@ const dfsBtn = document.getElementById('dfs');
 dfsBtn.addEventListener('click', async () => {
   const startNode = grid[startRow][startCol];
   const finishNode = grid[finishRow][finishCol];
-  
+
   clearGrid();
   isRunning = true;
 
   toggledButtonDisable(isRunning);
 
   const visitedeNodesInOrder = depthFirstSearch(grid, startNode, finishNode);
-  
-  
-  
   await animateAlgorithm(visitedeNodesInOrder, "dfs");
   const path = getPath(finishNode);
-  
+
   await animatePath(path);
   isRunning = false;
 

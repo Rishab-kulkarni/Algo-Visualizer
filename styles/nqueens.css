@@ -1,0 +1,35 @@
+html,
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    /* padding: 0 20px 30px 0; */
+    line-height: 1.4;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.grid {
+    background: lightgreen;
+    margin: auto;
+    border: 2px solid black;
+}
+
+/* p:nth-child(1) {
+    padding: 10px 20px;
+    text-align: center;
+    font-family: ubuntu;
+    font-weight: bolder;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: gray;
+} */
+
+.queen {
+    padding: 5px 30px;
+}

@@ -106,7 +106,7 @@ header {
 }
 
 .shortest-path {
- 
+
   background-color: rgb(255, 254, 106);
   animation-name: triangletwo;
   animation-duration: 1.5s;
@@ -116,7 +116,8 @@ header {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-play-state: running;
-} 
+}
+
 /* 
 @keyframes triangletwo {
 0% {

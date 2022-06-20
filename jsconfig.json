@@ -1,0 +1,8 @@
+{
+  "include": [
+    "*.js",
+    "libraries/*.js",
+    "c:\\Users\\Rishab\\.vscode\\extensions\\samplavigne.p5-vscode-1.2.8\\p5types\\global.d.ts",
+    "algorithms/sketch.js"
+  ]
+}

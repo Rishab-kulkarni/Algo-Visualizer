@@ -20,10 +20,13 @@ body {
 .flex-item{
   background: red;
   border: 1pt solid black;
-  width: 6px;
+  width: 40px;
   display: inline-block;
   margin : 0 1px;
   transition: 0.1s all ease;
 }
 
-
+.pausebtn{
+  position: absolute;
+  left:20px;
+}

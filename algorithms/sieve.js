@@ -5,14 +5,8 @@ const waitforme = (delay) => {
     setTimeout(() => { resolve('') }, delay);
   })
 }
-
-
-
-// console.log('test');
-
 const slider = document.getElementById('myRange')
 const speed_slider = document.getElementById('speed')
-
 
 let cols = Math.round(screen.width / 40);
 let rows = 10;
@@ -33,12 +27,12 @@ const clearTable = () => {
   prime_numbers[0].innerHTML = '';
 
   for (let i = 0; i < rows; ++i) {
-    
+
     for (let j = 0; j < cols; ++j) {
       const node = document.getElementById(`node-${i}-${j}`);
       node.id = `node-${i}-${j}`;
       node.style.backgroundColor = 'white';
-      
+
     }
   }
 }
@@ -107,7 +101,7 @@ const sieveofEratosthenes = async () => {
       for (let j = i * i; j <= total; j += i) {
         await waitforme(delay);
         let elem_temp = document.getElementsByClassName(`number-${j}`);
-        elem_temp[0].style.background =   colors[idx % (colors.length)];
+        elem_temp[0].style.background = colors[idx % (colors.length)];
         is_prime[j] = false;
         // console.log(j);
       }
@@ -132,7 +126,7 @@ sieveBtn.addEventListener('click', async () => {
   isRunning = false;
 
   toggledButtonDisable(isRunning);
-  
+
 
 })
 
@@ -143,7 +137,7 @@ const toggledButtonDisable = (isRunning) => {
 
   /* Disable all the buttons while algo is running*/
 
-  if(isRunning) {
+  if (isRunning) {
     document.getElementById('sieve').disabled = true;
     document.getElementById('speed').disabled = true;
     document.getElementById('myRange').disabled = true;

@@ -2,7 +2,7 @@ const breadthFirstSearch = (grid, startNode, finishNode) => {
 
   rowLength = grid.length;
   columnLength = grid[0].length;
-  
+
   return breadthFirstSearchHelper(startNode, finishNode);
 
 }
@@ -23,12 +23,12 @@ const breadthFirstSearchHelper = (startNode, finishNode) => {
       const { col, row } = currentNode;
       let nextNode;
 
-      for(let i = 0 ; i < 4 ; ++i) {
-        if(isValid(row + dx[i] , col + dy[i])) {
+      for (let i = 0; i < 4; ++i) {
+        if (isValid(row + dx[i], col + dy[i])) {
           nextNode = grid[row + dx[i]][col + dy[i]];
-          if(!nextNode.isVisited) {
+          if (!nextNode.isVisited) {
             nextNode.previousNode = currentNode;
-            queue.push(nextNode);          
+            queue.push(nextNode);
           }
         }
       }
@@ -53,7 +53,7 @@ bfsBtn.addEventListener('click', async () => {
   clearGrid();
   isRunning = true;
   toggledButtonDisable(isRunning);
- 
+
   const visitedeNodesInOrder = breadthFirstSearch(grid, startNode, finishNode);
   await animateAlgorithm(visitedeNodesInOrder, "bfs");
   // const path =  getPath(finishNode);
@@ -61,7 +61,5 @@ bfsBtn.addEventListener('click', async () => {
 
   isRunning = false;
   toggledButtonDisable(isRunning);
-
-
 })
 

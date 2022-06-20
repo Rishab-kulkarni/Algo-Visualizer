@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+  	<link href="styles/nqueens.css" rel="stylesheet" />
+  	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  	<title>N queens backtracking</title>
+
+</head>
+<body>
+	<h2 align='center'> N Queens Backtracking </h2>
+	<br/>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h4 class="modal-title" id="exampleModalLabel">
+				Welcome to N queens backtracking
+			  </h4>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <p> This short tutorial will walk you through the concept of backtracking. </p>
+			</div>
+			<div class="modal-footer">
+			  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+				data-bs-dismiss="modal">
+				Next
+			  </button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	
+	  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+		tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalToggleLabel2">What is a backtracking algorithm ? </h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <ul>
+				<li>
+				  <p>Backtracking is a technique based on algorithm to solve problem. It uses recursive calling to find the solution by building a solution step by step increasing values with time</p>
+				</li>
+				<li>
+				  <p> It removes the solutions that doesn't give rise to the solution of the problem based on the constraints given to solve the problem.</p>
+				</li>
+			 </ul>
+			</div>
+			<div class="modal-footer">
+			  <button class="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal"
+				data-bs-dismiss="modal">
+				Next
+			  </button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	
+	  <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+		tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalToggleLabel3">N queens problem </h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <ul>
+				<li>
+				  <p>Given a chessboard of size N*N </p>
+				</li>
+				<li>
+				  <p> Place N queens on this chessboard such that no two queens attack each other. </p>
+				</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+			  <button class="btn btn-primary" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal"
+				data-bs-dismiss="modal">
+				Next
+			  </button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	
+	
+	  <div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3"
+		tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalToggleLabel4">Enjoy !</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <p> I hope you have just as much fun playing around with this visualization tool as I had building it! </p>
+			</div>
+			<div class="modal-footer">
+			  <button class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-dismiss="modal">
+				Close
+			  </button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	
+
+
+
+	<canvas class='grid' width="500" height="500"> </canvas>
+	<div>
+		<button type="button" class="btn btn-primary queen" id="backtrack">
+            N Queens Bactrack
+          </button>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#exampleModal').modal('show');
+    });
+  </script>
+
+
+
+	<script src="algorithms/nqueens.js"></script>
+</body>
+</html>
